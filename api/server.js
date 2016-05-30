@@ -23,8 +23,8 @@ var auth_routes = require('./routes/auth_routes');
 // passes the checks it will go onto the routes.
 // This represents a CLOSED endpoint
 app.use('/api/auth',auth_routes);
-// app.use('/api/users',authentication,user_routes);
-app.use('/api/users',user_routes);
+app.use('/api/users',authentication,user_routes);
+// app.use('/api/users',user_routes);
 app.use('/api/houses',house_routes);
 
 

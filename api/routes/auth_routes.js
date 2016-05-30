@@ -61,10 +61,11 @@ router.post('/authenticate',function(req,res){
           user.password = '';
           delete user.password;
           var user_obj = {email:user.email};
+          console.log(user);
         var token = jwt.sign(user_obj,'brainstationkey');
 
         res.set('authentication',token);
-          res.json(user_obj)
+          res.json(user)
         }
         else{
           res.status(403)
