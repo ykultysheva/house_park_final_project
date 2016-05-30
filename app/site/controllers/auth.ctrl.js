@@ -22,6 +22,7 @@
       //check passwords
       if(authVm.password == authVm.repassword && authVm.password != ''){
         var user = {
+          name:authVm.name,
           email:authVm.email,
           password:authVm.password
         }
@@ -51,6 +52,9 @@
         console.log(res);
         localStorage.loginEmail = authVm.email;
         authVm.auth_btn = res.data.msg;
+        console.log(res);
+        $state.go("user", {userId: res.data.id});
+        // $state.go("user", {userId: res.data.user.id});
       })
     }
   }

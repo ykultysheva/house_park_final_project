@@ -7,7 +7,17 @@
 
     var userVm = this;
 
+// see if logged in
+    if(localStorage.authToken == undefined || localStorage.authToken == null){
+          $state.go('auth');
+        }
+
     userVm.getUser = getUser;
+    userVm.logout = logout;
+
+
+
+
 
     function getUser(){
       var userId = $stateParams.userId;
@@ -20,6 +30,13 @@
         }
 
       )}
+
+      function logout(){
+      localStorage.removeItem('authToken');
+      $state.go('auth');
+    }
+
+
 
       userVm.getUser();
 

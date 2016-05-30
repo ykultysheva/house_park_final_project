@@ -10,6 +10,12 @@
             <form method="post" class="stacked-form" ng-submit="authVm.register()">
               <div class="row">
                 <div class="col-xs-12">
+                  <span class="field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+                  <input class="form-input bs-input-box stacked-input-box" type="name" name="Name" value="" placeholder="Name" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ng-model="authVm.name" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
                   <span class="field-validation-valid" data-valmsg-for="EmailAddress" data-valmsg-replace="true"></span>
                   <input class="form-input bs-input-box stacked-input-box" type="email" name="EmailAddress" value="" placeholder="Email Address" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ng-model="authVm.email" />
                 </div>
