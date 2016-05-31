@@ -6,3 +6,51 @@
 
 
 <a ng-click="ctrl.logout()">Log out</a>
+
+
+<!-- Add a House -->
+
+<section id="auth">
+  <div class="login-page">
+    <div id="main-content" class="auth main-content">
+      <div class="banner-wrapper registration-header">
+        <h3>Add a house</h3>
+      </div>
+      <div class="container-fluid">
+        <div class="login-wrapper">
+          <div class="login-form clearfix">
+            <form method="post" class="stacked-form">
+              <div class="row">
+                <div class="col-xs-12">
+                  <span class="field-validation-valid" data-valmsg-for="Address" data-valmsg-replace="true"></span>
+                  <input class="form-input bs-input-box stacked-input-box" type="address" name="Address" value="" placeholder="Address" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ng-model="ctrl.house.address" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <span class="field-validation-valid" data-valmsg-for="Description" data-valmsg-replace="true"></span>
+                  <input class="form-input bs-input-box stacked-input-box" type="description" name="Description" value="" placeholder="Description" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ng-model="ctrl.house.description" />
+                </div>
+              </div>
+
+
+              </div>
+              <input type="submit" value="Add a House" class="form-input btn btn-primary bs-form__button btn-lg stacked-input-box" ng-click="ctrl.addHouse()"/>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- list of all the houses, where user_id == userId -->
+
+<h4>Houses:</h4>
+<div ng-repeat="house in ctrl.houses
+| filter: {user_id: ctrl.user.id}">
+  {{house.address}}
+  {{house.user_id}}
+  {{ctrl.user.id}}
+</div>

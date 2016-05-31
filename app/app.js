@@ -36,7 +36,11 @@
         url:"/users/:userId",
         controller: "userCtrl as ctrl",
         templateUrl: "site/partials/user.html",
-        // resolve?
+          resolve:{
+            houses:function(houseSrv){
+              return houseSrv.getHouses();
+            }
+          }
       });
 
     $httpProvider.interceptors.push(function(jwtHelper){

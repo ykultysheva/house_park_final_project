@@ -51,8 +51,8 @@
       .then(function(res){
         console.log(res);
         localStorage.loginEmail = authVm.email;
-        authVm.auth_btn = res.data.msg;
-        console.log(res);
+    //    authVm.auth_btn = res.data.msg;
+        console.log(res.data.id);
         $state.go("user", {userId: res.data.id});
         // $state.go("user", {userId: res.data.user.id});
       })

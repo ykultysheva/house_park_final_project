@@ -3,7 +3,7 @@
   .module("houseApp")
   .controller("userCtrl",userCtrl);
 
-  function userCtrl($stateParams, $state, $http) {
+  function userCtrl($stateParams, $state, $http, houseSrv) {
 
     var userVm = this;
 
@@ -14,8 +14,12 @@
 
     userVm.getUser = getUser;
     userVm.logout = logout;
-
-
+    userVm.addHouse = addHouse;
+    userVm.house;
+    userVm.houses = houseSrv.houses;
+    userVm.user = {};
+    userVm.filter = 'y';
+    userVm.user.id = $stateParams.userId;
 
 
 
@@ -31,6 +35,7 @@
 
       )}
 
+
       function logout(){
       localStorage.removeItem('authToken');
       $state.go('auth');
@@ -40,12 +45,39 @@
 
       userVm.getUser();
 
+
+
+    function addHouse(){
+      var newHouse = {
+        address: userVm.house.address,
+        description: userVm.house.description,
+        user_id: $stateParams.userId
+      }
+      console.log(newHouse);
+      houseSrv.addHouse(newHouse);
+    }
+
+
+    function updateHouse(){
+      console.log(userVm.house)
+
+      var updHouse = {
+        address: userVm.house.address,
+        description: userVm.house.description
+      }
+      console.log(updHouse)
+      houseSrv.updateHouse(updHouse, $stateParams.houseId)
+
+    }
+
+    function deleteHouse(){
+      houseSrv.deleteHouse($stateParams.houseId)
     }
 
 
 
 
 
-
+}
 
 })();

@@ -8,9 +8,7 @@ var models	= require('./../models');
 router.get('/',function(req,res){
   // res.send('get all houses');
   models.Houses.findAll().then(function(houses){
-    res.json({
-      houses:houses
-    });
+    res.json(houses);
   });
 });
 
@@ -26,6 +24,23 @@ router.get('/:houseId',function(req,res){
   });
 });
 
+
+
+// //get all houses belongin to one particular user
+// router.get('/users/:userId',function(req,res){
+//   // res.send('get one');
+//   console.log('Getting House with ID: '+req.params.userId);
+//   var where = {where:{user_id:req.params.userId}};
+//   models.Houses.find(where).then(function(houses){
+//     res.json(houses);
+//   });
+// });
+
+
+
+
+
+
 //update a house
 router.put('/:houseId',function(req,res){
   // res.send('update a house');
@@ -38,9 +53,7 @@ router.put('/:houseId',function(req,res){
       });
 
       __house.id = req.params.houseId;
-      res.json({
-      house:__house
-    });
+      res.json(house);
   });
 });
 
