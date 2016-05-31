@@ -41,7 +41,23 @@
               return houseSrv.getHouses();
             }
           }
-      });
+      })
+      .state("house",{
+        // url:"users/:userId/:houseId",
+        url:"/houses/:houseId",
+        controller: "houseCtrl as ctrl",
+        templateUrl: "site/partials/house.html",
+          resolve:{
+            house:function(houseSrv, $stateParams){
+              console.log($stateParams.houseId);
+              return houseSrv.getHouse($stateParams.houseId)
+                .then(function(res){
+                  return res;
+                })
+            }
+          }
+      })
+      ;
 
     $httpProvider.interceptors.push(function(jwtHelper){
       return {

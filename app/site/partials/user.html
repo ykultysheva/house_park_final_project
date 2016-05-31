@@ -50,7 +50,9 @@
 <h4>Houses:</h4>
 <div ng-repeat="house in ctrl.houses
 | filter: {user_id: ctrl.user.id}">
+  <a href="/#/houses/{{house.id}}">Go to House Detail</a>
   {{house.address}}
   {{house.user_id}}
   {{ctrl.user.id}}
+  {{house.id}}
 </div>

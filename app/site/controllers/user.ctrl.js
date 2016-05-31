@@ -3,14 +3,14 @@
   .module("houseApp")
   .controller("userCtrl",userCtrl);
 
-  function userCtrl($stateParams, $state, $http, houseSrv) {
+  function userCtrl($stateParams, $state, $http, houseSrv, $location) {
 
     var userVm = this;
 
 // see if logged in
-    if(localStorage.authToken == undefined || localStorage.authToken == null){
-          $state.go('auth');
-        }
+    // if(localStorage.authToken == undefined || localStorage.authToken == null){
+    //       $state.go('auth');
+    //     }
 
     userVm.getUser = getUser;
     userVm.logout = logout;
@@ -20,6 +20,7 @@
     userVm.user = {};
     userVm.filter = 'y';
     userVm.user.id = $stateParams.userId;
+    userVm.goToHouse = goToHouse;
 
 
 
@@ -43,7 +44,7 @@
 
 
 
-      userVm.getUser();
+    //  userVm.getUser();
 
 
 
@@ -72,6 +73,23 @@
 
     function deleteHouse(){
       houseSrv.deleteHouse($stateParams.houseId)
+    }
+
+    // function toHouse(){
+    //   $state.go("house")
+    //   $state.go("house", {houseId: res.data.id});
+    // }
+    //
+    //   movielVm.goToMovie = goToMovie;
+    //
+    // 	function goToMovie(movie){
+    // 		$location.path('/movie/'+movie.imdbID);
+    // 	}
+
+    function goToHouse(house){
+      // $location.path("/houses/"+house.id)
+      // $location.path("houses")
+      $state.go("house", {houseId: house.id});
     }
 
 

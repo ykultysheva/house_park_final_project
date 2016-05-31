@@ -47,12 +47,17 @@ angular
 
 
 
-    function getHouse(){
+    function getHouse(id){
       var houseId = $stateParams.houseId;
+      if (houseId == undefined) {
+        houseId = id
+      };
+      console.log(houseId);
       return $http.get("/api/houses/" + houseId)
         .then(function(res){
           this.house = res.data.house;
           console.log(res.data.house);
+          return res.data.house;
         }, function(err){
           console.log(err);
         }
