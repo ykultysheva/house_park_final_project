@@ -15,6 +15,7 @@ angular
    self.updateHouse = updateHouse;
    self.removeHouse = removeHouse;
    self.deleteHouse = deleteHouse;
+   self.updateHouseList = updateHouseList;
 
 
     function getHouses(){
@@ -74,13 +75,13 @@ angular
     }
 
     function updateHouse(house,houseId){
-      var houseId = $stateParams.houseId;
+      // var houseId = $stateParams.houseId;
       return $http.put("api/houses/" + houseId, house)
         .then(function(res){
           console.log(res);
           if(res.status === 200){
             self.updateHouseList(house,houseId);
-            // $state.go("housepage");
+            $state.go("house");
           }
         })
     }
@@ -104,6 +105,7 @@ angular
           self.removeHouse(houseId);
           // self.getHouses();
           // $state.go('user');
+          $state.go("user",{userId:house.user_id})
         }
       })
     }

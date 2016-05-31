@@ -19,7 +19,8 @@
     houseVm.deleteHouse = deleteHouse;
     houseVm.house = house;
     houseVm.houses = houseSrv.houses;
-    // houseVm.toUser = toUser;
+    houseVm.toUser = toUser;
+    houseVm.editHouse = editHouse;
 
 
     function getHouses(){
@@ -34,8 +35,8 @@
 
     function addHouse(){
       var newHouse = {
-        address: userVm.house.address,
-        description: userVm.house.description,
+        address: houseVm.house.address,
+        description: houseVm.house.description,
         user_id: $stateParams.userId
       }
       console.log(newHouse);
@@ -44,10 +45,10 @@
 
 
     function updateHouse(){
-      console.log(userVm.house)
+      console.log(houseVm.house)
       var updHouse = {
-        address: userVm.house.address,
-        description: userVm.house.description
+        address: houseVm.house.address,
+        description: houseVm.house.description
       }
       console.log(updHouse)
       houseSrv.updateHouse(updHouse, $stateParams.houseId)
@@ -60,9 +61,15 @@
 
 
   //
-  //   function toUser(){
-  //     $state.go("user")
-  //   }
+    function toUser(){
+      $state.go("user",{userId:house.user_id})
+    }
+
+    function editHouse(house){
+      $state.go("edit",{houseId:house.id});
+    }
+
+
   //
   // movielVm.goToMovie = goToMovie;
   //

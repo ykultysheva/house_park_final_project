@@ -8,9 +8,9 @@
     var userVm = this;
 
 // see if logged in
-    // if(localStorage.authToken == undefined || localStorage.authToken == null){
-    //       $state.go('auth');
-    //     }
+    if(localStorage.authToken == undefined || localStorage.authToken == null){
+          $state.go('auth');
+        }
 
     userVm.getUser = getUser;
     userVm.logout = logout;
@@ -22,7 +22,7 @@
     userVm.user.id = $stateParams.userId;
     userVm.goToHouse = goToHouse;
 
-
+    userVm.getUser();
 
     function getUser(){
       var userId = $stateParams.userId;
@@ -42,9 +42,6 @@
       $state.go('auth');
     }
 
-
-
-    //  userVm.getUser();
 
 
 

@@ -57,6 +57,20 @@
             }
           }
       })
+      .state("edit",{
+        url:"/edit_house/:houseId",
+        controller:"houseCtrl as ctrl",
+        templateUrl:"site/partials/edit_house.html",
+          resolve:{
+            house:function(houseSrv, $stateParams){
+              console.log($stateParams.houseId);
+              return houseSrv.getHouse($stateParams.houseId)
+                .then(function(res){
+                  return res;
+                })
+            }
+          }
+      })
       ;
 
     $httpProvider.interceptors.push(function(jwtHelper){
