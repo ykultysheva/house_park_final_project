@@ -37,7 +37,13 @@
       var newHouse = {
         address: houseVm.house.address,
         description: houseVm.house.description,
-        user_id: $stateParams.userId
+        user_id: $stateParams.userId,
+        photo: houseVm.house.photo,
+        price: houseVm.house.price,
+        mortgage: houseVm.house.mortgage,
+        tax: houseVm.house.tax,
+        insurance: houseVm.house.insurance,
+        rent: houseVm.house.rent
       }
       console.log(newHouse);
       houseSrv.addHouse(newHouse);
@@ -48,7 +54,13 @@
       console.log(houseVm.house)
       var updHouse = {
         address: houseVm.house.address,
-        description: houseVm.house.description
+        description: houseVm.house.description,
+        photo: houseVm.house.photo,
+        price: houseVm.house.price,
+        mortgage: houseVm.house.mortgage,
+        tax: houseVm.house.tax,
+        insurance: houseVm.house.insurance,
+        rent: houseVm.house.rent
       }
       console.log(updHouse)
       houseSrv.updateHouse(updHouse, $stateParams.houseId)

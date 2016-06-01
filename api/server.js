@@ -15,6 +15,7 @@ var authentication = require("./middleware/auth");
 var user_routes = require('./routes/user_routes');
 var house_routes = require('./routes/house_routes');
 var auth_routes = require('./routes/auth_routes');
+var maintenance_routes = require("./routes/maintenance_routes");
 
 
 // set routes
@@ -26,6 +27,7 @@ app.use('/api/auth',auth_routes);
 // app.use('/api/users',authentication,user_routes);
 app.use('/api/users',user_routes);
 app.use('/api/houses',house_routes);
+app.use("/api/maintenances", maintenance_routes);
 
 
 

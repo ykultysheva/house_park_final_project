@@ -49,7 +49,13 @@
       var newHouse = {
         address: userVm.house.address,
         description: userVm.house.description,
-        user_id: $stateParams.userId
+        user_id: $stateParams.userId,
+        photo: userVm.house.photo,
+        price: userVm.house.price,
+        mortgage: userVm.house.mortgage,
+        tax: userVm.house.tax,
+        insurance: userVm.house.insurance,
+        rent: userVm.house.rent
       }
       console.log(newHouse);
       houseSrv.addHouse(newHouse);

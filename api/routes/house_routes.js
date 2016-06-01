@@ -50,6 +50,13 @@ router.put('/:houseId',function(req,res){
     house.updateAttributes({
         address:__house.address,
         description:__house.description,
+        photo:__house.photo,
+        price:__house.price,
+        mortgage:__house.mortgage,
+        tax:__house.tax,
+        insurance:__house.insurance,
+        rent:__house.rent,
+
       });
 
       __house.id = req.params.houseId;

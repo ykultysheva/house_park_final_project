@@ -50,6 +50,7 @@ angular
 
     function getHouse(id){
       var houseId = $stateParams.houseId;
+      console.log(houseId);
       if (houseId == undefined) {
         houseId = id
       };
@@ -81,7 +82,9 @@ angular
           console.log(res);
           if(res.status === 200){
             self.updateHouseList(house,houseId);
-            $state.go("house");
+            // Does not go back to the house profile
+            console.log($stateParams.houseId);
+            $state.go("house",{houseId:house.user_id});
           }
         })
     }
@@ -89,8 +92,14 @@ angular
     function updateHouseList(house,houseId){
       for(var i=0; i<self.houses.length;i++){
         if(self.houses[i].id == houseId){
-          self.houses[i].address = house.address;
-          self.houses[i].description = house.description;
+          self.houses[i].address = house.address,
+          self.houses[i].description = house.description,
+          self.houses[i].photo = house.photo,
+          self.houses[i].price = house.price,
+          self.houses[i].mortgage = house.mortgage,
+          self.houses[i].tax = house.tax,
+          self.houses[i].insurance = house.insurance,
+          self.houses[i].rent = house.rent
         }
       }
     }

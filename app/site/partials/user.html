@@ -20,18 +20,76 @@
         <div class="login-wrapper">
           <div class="login-form clearfix">
             <form method="post" class="stacked-form">
+
+<!-- Photo -->
+              <div class="row">
+                <div class="col-xs-12">
+                  <span class="field-validation-valid" data-valmsg-for="Photo" data-valmsg-replace="true"></span>
+                  <input class="form-input bs-input-box stacked-input-box" type="photo" name="Photo" value="" placeholder="Photo" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ng-model="ctrl.house.photo" />
+                </div>
+              </div>
+
+<!-- Address -->
               <div class="row">
                 <div class="col-xs-12">
                   <span class="field-validation-valid" data-valmsg-for="Address" data-valmsg-replace="true"></span>
                   <input class="form-input bs-input-box stacked-input-box" type="address" name="Address" value="" placeholder="Address" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ng-model="ctrl.house.address" />
                 </div>
               </div>
+
+
+<!-- description -->
               <div class="row">
                 <div class="col-xs-12">
                   <span class="field-validation-valid" data-valmsg-for="Description" data-valmsg-replace="true"></span>
                   <input class="form-input bs-input-box stacked-input-box" type="description" name="Description" value="" placeholder="Description" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ng-model="ctrl.house.description" />
                 </div>
               </div>
+
+<!-- Price -->
+              <div class="row">
+                <div class="col-xs-12">
+                  <span class="field-validation-valid" data-valmsg-for="Price" data-valmsg-replace="true"></span>
+                  <input class="form-input bs-input-box stacked-input-box" type="price" name="Price" value="" placeholder="Price" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ng-model="ctrl.house.price" />
+                </div>
+              </div>
+
+
+
+<!-- Rent -->
+            <div class="row">
+              <div class="col-xs-12">
+                <span class="field-validation-valid" data-valmsg-for="Rent" data-valmsg-replace="true"></span>
+                <input class="form-input bs-input-box stacked-input-box" type="rent" name="Rent" value="" placeholder="Rent" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ng-model="ctrl.house.rent" />
+              </div>
+            </div>
+
+
+<!-- Morgage -->
+            <div class="row">
+              <div class="col-xs-12">
+                <span class="field-validation-valid" data-valmsg-for="Mortgage" data-valmsg-replace="true"></span>
+                <input class="form-input bs-input-box stacked-input-box" type="mortgage" name="Mortgage" value="" placeholder="Mortgage" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ng-model="ctrl.house.mortgage" />
+              </div>
+            </div>
+
+
+<!-- Tax -->
+            <div class="row">
+              <div class="col-xs-12">
+                <span class="field-validation-valid" data-valmsg-for="Tax" data-valmsg-replace="true"></span>
+                <input class="form-input bs-input-box stacked-input-box" type="tax" name="Tax" value="" placeholder="Tax" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ng-model="ctrl.house.tax" />
+              </div>
+            </div>
+
+<!-- Insurance -->
+            <div class="row">
+              <div class="col-xs-12">
+                <span class="field-validation-valid" data-valmsg-for="Insurance" data-valmsg-replace="true"></span>
+                <input class="form-input bs-input-box stacked-input-box" type="insurance" name="Insurance" value="" placeholder="Insurance" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ng-model="ctrl.house.insurance" />
+              </div>
+            </div>
+
 
 
               </div>
@@ -51,7 +109,14 @@
 <div ng-repeat="house in ctrl.houses
 | filter: {user_id: ctrl.user.id}">
   <a href="/#/houses/{{house.id}}">Go to House Detail</a>
+  {{house.photo}}
   {{house.address}}
+  {{house.description}}
+  {{house.price}}
+  {{house.rent}}
+  {{house.mortgage}}
+  {{house.tax}}
+  {{house.insurance}}
   {{house.user_id}}
   {{ctrl.user.id}}
   {{house.id}}

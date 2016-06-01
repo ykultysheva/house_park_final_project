@@ -62,14 +62,14 @@
         controller:"houseCtrl as ctrl",
         templateUrl:"site/partials/edit_house.html",
           resolve:{
-            house:function(houseSrv, $stateParams){
-              console.log($stateParams.houseId);
-              return houseSrv.getHouse($stateParams.houseId)
-                .then(function(res){
-                  return res;
-                })
-            }
+          house:function(houseSrv, $stateParams){
+            console.log($stateParams.houseId);
+            return houseSrv.getHouse($stateParams.houseId)
+              .then(function(res){
+                return res;
+              })
           }
+        }
       })
       ;
 
