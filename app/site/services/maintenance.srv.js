@@ -25,6 +25,7 @@ angular
         // should be an array
         self.maintenances = res.data;
         console.log(res.data);
+        return res.data;
       }, function(err){
         console.log(err);
       })

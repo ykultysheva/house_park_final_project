@@ -18,16 +18,82 @@
 <br>
 {{ctrl.house.insurance}}
 
-
-
-
-
-
-
-
 <br>
 
 <br>
 
 
 <a href="/#/edit_house/{{ctrl.house.id}}">Edit House</a>
+
+<!-- Add a maintenance -->
+
+<section id="auth">
+  <div class="login-page">
+    <div id="main-content" class="auth main-content">
+      <div class="banner-wrapper registration-header">
+        <h3>Add a Maintenance</h3>
+      </div>
+      <div class="container-fluid">
+        <div class="login-wrapper">
+          <div class="login-form clearfix">
+            <form method="post" class="stacked-form">
+
+<!-- Photo -->
+              <div class="row">
+                <div class="col-xs-12">
+                  <span class="field-validation-valid" data-valmsg-for="Photo" data-valmsg-replace="true"></span>
+                  <input class="form-input bs-input-box stacked-input-box" type="photo" name="Photo" value="" placeholder="Photo" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ng-model="ctrl.maintenance.photo" />
+                </div>
+              </div>
+
+<!-- description -->
+              <div class="row">
+                <div class="col-xs-12">
+                  <span class="field-validation-valid" data-valmsg-for="Description" data-valmsg-replace="true"></span>
+                  <input class="form-input bs-input-box stacked-input-box" type="description" name="Description" value="" placeholder="Description" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ng-model="ctrl.maintenance.description" />
+                </div>
+              </div>
+
+
+<!-- price -->
+              <div class="row">
+                <div class="col-xs-12">
+                  <span class="field-validation-valid" data-valmsg-for="Price" data-valmsg-replace="true"></span>
+                  <input class="form-input bs-input-box stacked-input-box" type="price" name="Price" value="" placeholder="Price" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ng-model="ctrl.maintenance.price" />
+                </div>
+              </div>
+
+<!-- Price -->
+              <div class="row">
+                <div class="col-xs-12">
+                  <span class="field-validation-valid" data-valmsg-for="Date" data-valmsg-replace="true"></span>
+                  <input class="form-input bs-input-box stacked-input-box" type="date" name="Date" value="" placeholder="Date" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ng-model="ctrl.maintenance.date" />
+                </div>
+              </div>
+
+
+              </div>
+              <input type="submit" value="Add a Maintenance" class="form-input btn btn-primary bs-form__button btn-lg stacked-input-box" ng-click="ctrl.addMaintenance()"/>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- list of all the maintenances, where maintenence.house_id == $stateParams.houseId -->
+
+<h4>Houses:</h4>
+<div ng-repeat="maintenance in ctrl.maintenances
+| filter: {house_id: ctrl.house.id}">
+  <!-- <a href="/#/houses/{{house.id}}">Go to House Detail</a> -->
+  {{maintenance.photo}}
+  {{maintenance.description}}
+  {{maintenance.price}}
+  {{maintenance.date}}
+<p>Ids</p>
+  {{maintenance.house_id}}
+  {{ctrl.house.id}}
+</div>

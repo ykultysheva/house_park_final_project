@@ -76,6 +76,7 @@ angular
     }
 
     function updateHouse(house,houseId){
+      console.log('HOUSE ID: ' +houseId);
       // var houseId = $stateParams.houseId;
       return $http.put("api/houses/" + houseId, house)
         .then(function(res){
@@ -83,8 +84,7 @@ angular
           if(res.status === 200){
             self.updateHouseList(house,houseId);
             // Does not go back to the house profile
-            console.log($stateParams.houseId);
-            $state.go("house",{houseId:house.user_id});
+            $state.go("house",{houseId:houseId});
           }
         })
     }
