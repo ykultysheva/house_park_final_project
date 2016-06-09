@@ -123,3 +123,21 @@ a.sign-in-link.small-text {
 a.sign-in-link {
     color: #3397FA;
 }
+
+.company-name {
+  text-align:center;
+  margin-top:70px;
+}
+
+.login-auth-form {
+  width:90%;
+  margin:auto;
+  margin-top:80px;
+}
+
+.new-home-maint {
+  width:90%;
+  margin:auto;
+  margin-top:0px;
+  padding-top:10px;
+}

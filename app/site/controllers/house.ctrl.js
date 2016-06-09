@@ -10,7 +10,7 @@
         // if(localStorage.authToken == undefined || localStorage.authToken == null){
         //       $state.go('auth');
         //     }
-
+    houseVm.sort = 0;
     houseVm.getHouses = getHouses;
     houseVm.getHouse = getHouse;
     houseVm.addHouse = addHouse;
@@ -34,6 +34,80 @@
     // houseVm.toHouse = toHouse;
     // houseVm.editMaintenance = editMaintenance;
 
+    houseVm.maintSortOptions = [
+      {label: 'Jan',
+      value: '0',
+      sortField: 'month'},
+      {label: 'Feb',
+      value: '1',
+      sortField: 'month'},
+      {label: 'Mar',
+      value: '2',
+      sortField: 'month'},
+      {label: 'Apr',
+      value: '3',
+      sortField: 'month'},
+      {label: 'May',
+      value: '4',
+      sortField: 'month'},
+      {label: 'Jun',
+      value: '5',
+      sortField: 'month'},
+      {label: 'Jul',
+      value: '6',
+      sortField: 'month'},
+      {label: 'Aug',
+      value: '7',
+      sortField: 'month'},
+      {label: 'Sep',
+      value: '8',
+      sortField: 'month'},
+      {label: 'Oct',
+      value: '9',
+      sortField: 'month'},
+      {label: 'Nov',
+      value: '10',
+      sortField: 'month'},
+      {label: 'Dec',
+      value: '11',
+      sortField: 'month'},
+      {label: 'Show All',
+      value: '',
+      sortField: 'month'},
+    ]
+
+    houseVm.maintShow = true;
+
+// var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+//   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+for (var i = 0; i < houseVm.maintenances.length; i++) {
+  // create New Date string where getMonth property can be applied
+  var dateString = new Date(houseVm.maintenances[i].date);
+  var monthNum = dateString.getMonth();
+  // houseVm.maintenances[i].month = monthNames[monthNum];
+  // save monthNum(month number) in month property created for each maintenance object
+  houseVm.maintenances[i].month = monthNum;
+  // now I can filter list of maintenace by month
+}
+
+
+
+
+
+houseVm.monthlyMaintenancePrice = [0,0,0,0,0,0,0,0,0,0,0,0];
+
+for (var i = 0; i < houseVm.maintenances.length; i++) {
+  var monthIndex = houseVm.maintenances[i].month;
+  houseVm.monthlyMaintenancePrice[monthIndex] += houseVm.maintenances[i].price;
+}
+
+console.log(houseVm.monthlyMaintenancePrice);
+
+
+
+
+// var month = houseVm.maintenance.date.getMonth();
 
     function getHouses(){
       houseSrv.getHouses()
@@ -87,11 +161,11 @@
 
   //
     function toUser(){
-      $state.go("user",{userId:house.user_id})
+      $state.go("base.user",{userId:house.user_id})
     }
 
     function editHouse(house){
-      $state.go("edit",{houseId:house.id});
+      $state.go("base.edit",{houseId:house.id});
     }
 
 
@@ -117,6 +191,7 @@ function addMaintenance(){
   }
   console.log(newMaintenance);
   maintSrv.addMaintenance(newMaintenance);
+  houseVm.maintShow = true;
 }
 
 

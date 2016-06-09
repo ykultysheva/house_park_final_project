@@ -84,7 +84,7 @@ angular
           if(res.status === 200){
             self.updateHouseList(house,houseId);
             // Does not go back to the house profile
-            $state.go("house",{houseId:houseId});
+            $state.go("base.house",{houseId:houseId});
           }
         })
     }

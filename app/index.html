@@ -8,29 +8,32 @@
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
   <link rel="stylesheet" type="text/css" href="assets/css/auth.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/app.css">
 
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script src="bower_components/angular-jwt/dist/angular-jwt.js"></script>
-
   <script src="app.js"></script>
+
   <script src="site/services/houses.srv.js"></script>
   <script src="site/services/maintenance.srv.js"></script>
-
   <script src="site/controllers/auth.ctrl.js"></script>
+  <script src="site/controllers/base.ctrl.js"></script>
   <script src="site/controllers/user.ctrl.js"></script>
   <script src="site/controllers/house.ctrl.js"></script>
 
 
 
+
+
 </head>
 <body ng-app="houseApp">
-
-  <p>Index HTML File Greeting</p>
-
-  <div ui-view></div>
+  <div class="wrapper">
+    <div ui-view></div>
+  </div>
 
 </body>
 </html>

@@ -32,7 +32,14 @@
         controller:'AuthCtrl',
         controllerAs:'authVm'
       })
-      .state("user",{
+      .state("base",{
+        abstract:true,
+        url:"",
+        controller:"baseCtrl",
+        controllerAs:"ctrl",
+        templateUrl:"site/partials/base.html"
+      })
+      .state("base.user",{
         url:"/users/:userId",
         controller: "userCtrl as ctrl",
         templateUrl: "site/partials/user.html",
@@ -42,7 +49,7 @@
             }
           }
       })
-      .state("house",{
+      .state("base.house",{
         // url:"users/:userId/:houseId",
         url:"/houses/:houseId",
         controller: "houseCtrl as ctrl",
@@ -84,7 +91,7 @@
 
 
       })
-      .state("edit",{
+      .state("base.edit",{
         url:"/edit_house/:houseId",
         controller:"houseCtrl as ctrl",
         templateUrl:"site/partials/edit_house.html",

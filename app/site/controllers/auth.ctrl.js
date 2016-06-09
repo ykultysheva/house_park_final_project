@@ -31,7 +31,7 @@
         .then(function(res){
           console.log(res);
           authVm.register_btn = res.data.msg;
-          $state.go("user", {userId: res.data.user.id});
+          $state.go("base.user", {userId: res.data.user.id});
           //res.data.user.id
         })
       }
@@ -53,7 +53,7 @@
         localStorage.loginEmail = authVm.email;
     //    authVm.auth_btn = res.data.msg;
         console.log(res.data.id);
-        $state.go("user", {userId: res.data.id});
+        $state.go("base.user", {userId: res.data.id});
         // $state.go("user", {userId: res.data.user.id});
       })
     }

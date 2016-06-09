@@ -1,33 +1,42 @@
-<h4>Landlord (User) Account Details</h4>
+<h4 style="text-align:center;margin-top:80px;">Landlord Details</h4>
 
-<p>Name: {{ctrl.user.name}}</p>
+<div class="landlord-card">
+    <p>
+      <span style='margin:auto;'
+      " class="glyphicon glyphicon-user" aria-hidden="true"></span>
+      <br />
+      <b>Name:</b> {{ctrl.user.name}}
+      <br>
+      <b>Email: </b> {{ctrl.user.email}}
+      <br>
+      <a ng-click="ctrl.logout()">Log out</a>
+    </p>
 
-<p>Email: {{ctrl.user.email}}</p>
+</div>
 
 
-<a ng-click="ctrl.logout()">Log out</a>
+<h4 style="text-align:center; margin-top:30px;">List of Properties</h4>
 
 
-<!-- Add a House -->
 
-<section id="auth">
-  <div class="login-page">
+<h5 ng-click="ctrl.houseShow = !ctrl.houseShow" style="color:green">
+<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add New
+</h5>
+
+
+
+<section class='login-auth-form' ng-hide="ctrl.houseShow">
+  <div>
     <div id="main-content" class="auth main-content">
-      <div class="banner-wrapper registration-header">
-        <h3>Add a house</h3>
+      <div>
+        <h4 style="text-align:center;margin-bottom:15px;">Add New Property</h4>
       </div>
       <div class="container-fluid">
         <div class="login-wrapper">
           <div class="login-form clearfix">
             <form method="post" class="stacked-form">
 
-<!-- Photo -->
-              <div class="row">
-                <div class="col-xs-12">
-                  <span class="field-validation-valid" data-valmsg-for="Photo" data-valmsg-replace="true"></span>
-                  <input class="form-input bs-input-box stacked-input-box" type="photo" name="Photo" value="" placeholder="Photo" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ng-model="ctrl.house.photo" />
-                </div>
-              </div>
+
 
 <!-- Address -->
               <div class="row">
@@ -105,19 +114,26 @@
 
 <!-- list of all the houses, where user_id == userId -->
 
-<h4>Houses:</h4>
-<div ng-repeat="house in ctrl.houses
-| filter: {user_id: ctrl.user.id}">
-  <a href="/#/houses/{{house.id}}">Go to House Detail</a>
-  {{house.photo}}
-  {{house.address}}
-  {{house.description}}
-  {{house.price}}
-  {{house.rent}}
-  {{house.mortgage}}
-  {{house.tax}}
-  {{house.insurance}}
-  {{house.user_id}}
-  {{ctrl.user.id}}
-  {{house.id}}
-</div>
+
+
+
+
+
+
+<table class="table table-striped table-condensed cart-table" style="margin-top:20px;">
+            <tr style="line-height:50px";>
+              <th scope="col" class="col-md-3 cart-th">Details</th>
+              <th scope="col" class="col-md-3 cart-th">Address</th>
+              <th scope="col" class="col-md-3 cart-th">Description</th>
+              <th scope="col" class="col-md-3 cart-th">Price</th>
+
+            </tr>
+
+            <tr ng-repeat="house in ctrl.houses
+            | filter: {user_id: ctrl.user.id}">
+              <td><a href="/#/houses/{{house.id}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></td>
+              <td>{{house.address}}</td>
+              <td>{{house.description}}</td>
+              <td>{{house.price|currency:undefined:0}}</td>
+            </tr>
+        </table>

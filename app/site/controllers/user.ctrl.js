@@ -59,6 +59,7 @@
       }
       console.log(newHouse);
       houseSrv.addHouse(newHouse);
+      userVm.houseShow = true;
     }
 
 
@@ -92,10 +93,10 @@
     function goToHouse(house){
       // $location.path("/houses/"+house.id)
       // $location.path("houses")
-      $state.go("house", {houseId: house.id});
+      $state.go("base.house", {houseId: house.id});
     }
 
-
+    userVm.houseShow = true;
 
 
 
